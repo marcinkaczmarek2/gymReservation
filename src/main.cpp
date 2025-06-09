@@ -23,7 +23,7 @@ int main() {
 
     std::filesystem::path trainerFilePath = exePath / "resources" / "data" / "trainer.json";
     std::filesystem::path memberFilePath = exePath / "resources" / "data" / "member.json";
-    std::filesystem::path reservationFilePath = exePath) / "resources" / "data" / "reservation.json";
+    std::filesystem::path reservationFilePath = exePath / "resources" / "data" / "reservation.json";
 
     FileManager<Trainer, std::string> trainerFileManager(trainerFilePath);
     FileManager<Member, std::string> memberFileManager(memberFilePath);
