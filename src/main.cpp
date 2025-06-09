@@ -21,9 +21,9 @@ int main() {
 
     std::filesystem::path exePath = std::filesystem::current_path();
 
-    std::filesystem::path trainerFilePath = exePath.parent_path() / "resources" / "data" / "trainer.json";
-    std::filesystem::path memberFilePath = exePath.parent_path() / "resources" / "data" / "member.json";
-    std::filesystem::path reservationFilePath = exePath.parent_path() / "resources" / "data" / "reservation.json";
+    std::filesystem::path trainerFilePath = exePath / "resources" / "data" / "trainer.json";
+    std::filesystem::path memberFilePath = exePath / "resources" / "data" / "member.json";
+    std::filesystem::path reservationFilePath = exePath) / "resources" / "data" / "reservation.json";
 
     FileManager<Trainer, std::string> trainerFileManager(trainerFilePath);
     FileManager<Member, std::string> memberFileManager(memberFilePath);

@@ -69,6 +69,10 @@ set(SOURCE_FILES
         src/frontend/panels/AdminPanel.cpp
 )
 
+set(RESOURCES_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/resources")
+set(RESOURCES_DST_DIR "${CMAKE_CURRENT_BINARY_DIR}/resources")
+
+
 set(CMAKE_SOURCE_DIR gymReservationProject)
 include_directories("${CMAKE_SOURCE_DIR}/include")
 add_executable(Project ${SOURCE_FILES})
@@ -150,3 +154,11 @@ add_test(NAME Test COMMAND TestProject
         --report_level=detailed
         --log_level=all
         --color_output=yes)
+		
+		add_custom_command(
+    TARGET MyProject POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+            "${RESOURCES_SRC_DIR}"
+            "${RESOURCES_DST_DIR}"
+    COMMENT "Kopiowanie katalogu resources..."
+)
