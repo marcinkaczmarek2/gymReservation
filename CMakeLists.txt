@@ -155,8 +155,8 @@ add_test(NAME Test COMMAND TestProject
         --log_level=all
         --color_output=yes)
 		
-		add_custom_command(
-    TARGET MyProject POST_BUILD
+add_custom_command(
+    TARGET Project POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
             "${RESOURCES_SRC_DIR}"
             "${RESOURCES_DST_DIR}"
