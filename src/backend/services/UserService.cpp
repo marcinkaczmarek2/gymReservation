@@ -45,16 +45,19 @@ User* UserService::registerUser(RegisterDTO registerDTO, bool isTrainer) {
 
 }
 
-User *UserService::loginUser(LoginDTO loginDTO) {
-
+User* UserService::loginUser(LoginDTO loginDTO) {
     User* user = getUserByEmail(loginDTO.emailAddress);
 
-    if(!user->validatePassword(loginDTO.password)) {
+    if (!user) {
+        std::cerr << "User not found for email: " << loginDTO.emailAddress << "\n";
+        return nullptr;
+    }
+
+    if (!user->validatePassword(loginDTO.password)) {
         return nullptr;
     }
 
     return user;
-
 }
 
 bool UserService::extendGymMembership(Member* member, int day, int month, int year) {
