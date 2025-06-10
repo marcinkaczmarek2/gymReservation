@@ -1,16 +1,9 @@
-//
-// Created by Marcin Kaczmarek on 1/28/25.
-//
-
 #ifndef USERPANEL_H
 #define USERPANEL_H
-
 #include "../../backend/controllers/Controller.h"
 #include "../../backend/controllers/UserController.h"
 #include "../../backend/controllers/ReservationController.h"
-
 class UserPanel {
-
 protected:
     Controller* userController;
     Controller* reservationController;
@@ -25,7 +18,4 @@ public:
     User* getLoggedInUser() const;
     static void clearConsole();
 };
-
-
-
 #endif //USERPANEL_H

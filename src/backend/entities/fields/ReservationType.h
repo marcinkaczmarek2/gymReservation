@@ -1,19 +1,12 @@
-//
-// Created by Marcin Kaczmarek on 1/25/25.
-//
-
 #ifndef RESERVATION_TYPE_H
 #define RESERVATION_TYPE_H
-
 #include <iostream>
 #include <vector>
 struct ReservationType {
-
     std::string name;
     int roomNumber;
     int maxOccupancy;
     std::string description;
-
     static const ReservationType Weightlifting;
     static const ReservationType Yoga;
     static const ReservationType Fitness;
@@ -28,10 +21,7 @@ struct ReservationType {
     static const ReservationType StrengthTraining;
     static const ReservationType Meditation;
     static const ReservationType HIIT;
-
     static const ReservationType getByName(const std::string& name);
-
     static const std::vector<ReservationType>  getAllReservationTypes();
 };
-
 #endif // RESERVATION_TYPE_H
