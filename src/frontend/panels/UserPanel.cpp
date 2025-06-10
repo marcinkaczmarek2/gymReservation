@@ -35,7 +35,7 @@ void UserPanel::setLoggedInUser(User* user) {
 }
 
 void UserPanel::clearConsole() {
-    std::this_thread::sleep_for(std::chrono::seconds(0.5));
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
 #ifdef _WIN32
     system("cls");
 #elif defined(__unix__) || defined(__APPLE__) || defined(__MACH__)
