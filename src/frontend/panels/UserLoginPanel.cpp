@@ -19,14 +19,13 @@ void UserLoginPanel::handleUserAction() {
             std::string password = getUserInput("Enter your password");
 
             LoginDTO loginDTO = {email, password};
-			try{
-				User* user = dynamic_cast<UserController*>(userController)->loginUser(loginDTO);
-			}	catch(Exception e){
-				std::cerr << "Wrong user credidentials.\n"
+			User* user = nullptr;
+			try {
+				user = dynamic_cast<UserController*>(userController)->loginUser(loginDTO);
+			} catch(const std::exception& e) {
+				std::cerr << "Wrong user credentials.\n";
 			}
 			
-				
-            
 
             if (user!=nullptr) {
                 std::cout << "Login successful!\n";
