@@ -15,27 +15,32 @@ void UserLoginPanel::handleUserAction() {
     while (true) {
         std::string choice = getUserInput("Choose an option");
         if (choice == "1") {
-            std::string email = getUserInput("Enter your email");
-            std::string password = getUserInput("Enter your password");
+			std::string email = getUserInput("Enter your email");
+			std::string password = getUserInput("Enter your password");
 
-            LoginDTO loginDTO = {email, password};
+			LoginDTO loginDTO = {email, password};
+			UserController* uc = dynamic_cast<UserController*>(userController);
+			if (!uc) {
+				std::cerr << "Error: userController is not a UserController.\n";
+				continue; // wróć do pętli i zapytaj ponownie
+			}
+
 			User* user = nullptr;
 			try {
-				user = dynamic_cast<UserController*>(userController)->loginUser(loginDTO);
+				user = uc->loginUser(loginDTO);
 			} catch(const std::exception& e) {
 				std::cerr << "Wrong user credentials.\n";
 			}
-			
 
-            if (user!=nullptr) {
-                std::cout << "Login successful!\n";
-                setLoggedInUser(user);
-                auto userReservationPanel = std::make_unique<UserReservationPanel>(userController, reservationController, getLoggedInUser());
-                userReservationPanel->handleUserAction();
-            } else {
-                std::cerr << "Invalid email or password for User. Please try again.\n";
-            }
-        } else if (choice == "2") {
+			if (user != nullptr) {
+				std::cout << "Login successful!\n";
+				setLoggedInUser(user);
+				auto userReservationPanel = std::make_unique<UserReservationPanel>(userController, reservationController, getLoggedInUser());
+				userReservationPanel->handleUserAction();
+			} else {
+				std::cerr << "Invalid email or password for User. Please try again.\n";
+			}
+		} else if (choice == "2") {
             std::cout << "Login as admin...\n";
 
             std::string email = getUserInput("Enter admin login");
