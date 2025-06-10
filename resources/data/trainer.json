@@ -1,18 +1,2 @@
 [
-    {
-        "emailAddress": "piechóta@gmail.com",
-        "name": "Bartłómiej Piechóta",
-        "password": "haslo",
-        "phoneNumber": "342145321",
-        "salary": 23000.0,
-        "uuid": "79ea9080-63d1-4ecf-98db-1cd1814a81ed"
-    },
-    {
-        "emailAddress": "pudzian@gmail.com",
-        "name": "Mariusz Pudzianowski",
-        "password": "haslo",
-        "phoneNumber": "955312653",
-        "salary": 25000.0,
-        "uuid": "afb4bede-dce1-470d-8b0b-4509a0ee17c0"
-    }
 ]
