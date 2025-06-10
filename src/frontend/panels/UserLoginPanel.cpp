@@ -19,11 +19,13 @@ void UserLoginPanel::handleUserAction() {
 			std::string password = getUserInput("Enter your password");
 
 			LoginDTO loginDTO = {email, password};
+			std::cout << "userController pointer: " << userController << "\n";
 			UserController* uc = dynamic_cast<UserController*>(userController);
+			std::cout << "UserController pointer after dynamic_cast: " << uc << "\n";
 			if (!uc) {
 				std::cerr << "Error: userController is not a UserController.\n";
-				continue; // wróć do pętli i zapytaj ponownie
-			}
+				continue;
+}
 
 			User* user = nullptr;
 			try {
