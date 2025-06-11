@@ -33,14 +33,14 @@ To run this application, follow these steps:
 2. Update the system:
    sudo apt update && sudo apt upgrade
 3. Install required tools and libraries:
-   sudo apt install build-essential cmake gdb libboost-all-dev
+   sudo apt install build-essential cmake gdb libboost-all-dev uuid-dev
 4. Clone the project:
    git clone https://github.com/marcinkaczmarek2/gymReservation.git
 5. Create and enter a build directory:
    mkdir build && cd build
 6. Generate build files using CMake:
    cmake -G "Unix Makefiles" ../gymReservation
-7.Build the application:
+7. Build the application:
    make
 8. Run the application:
    ./Project
